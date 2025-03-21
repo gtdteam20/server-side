@@ -14,11 +14,10 @@ dotenv.config({ path: './config.env' });
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Use CORS
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:2000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: ["http://localhost:2000", "http://localhost:3000"],
+  credentials: true,
+  optionsSuccessStatus: 200
 }));
 
 // Connect to MongoDB
